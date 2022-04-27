@@ -14,7 +14,7 @@ def transcode_file(request, filename):
 
 
 # Assert statements
-def isAdmin(request, user):
+def is_admin(request, user):
     assert user.is_admin, 'user does not have access'
     # secure code...
 
@@ -34,3 +34,9 @@ def index():
 
 
 print(base64.b64encode(pickle.dumps(RunBinSh())))
+
+if __name__ == "__main__":
+    malicious = "\nprint('IT WORKS')\nimport urllib "
+    import_urlib_version(malicious)
+    malicious2 = "\nprint('IT WORKS TWO') #"
+    import_urlib_version(malicious2)
