@@ -1,12 +1,11 @@
 # contains bunch of buggy examples, taken from:
 # https://hackernoon.com/10-common-security-gotchas-in-python-and-how-to-avoid-them-e19fbe265e03
 import subprocess
-try:
-    import cPickle as pickle
-except:
-    import pickle
+import pickle
 import base64
 import flask
+
+app = flask(__name__)
 
 # Input injection
 def transcode_file(request, filename):
@@ -15,7 +14,7 @@ def transcode_file(request, filename):
 
 
 # Assert statements
-def foo(request, user):
+def isAdmin(request, user):
     assert user.is_admin, 'user does not have access'
     # secure code...
 
